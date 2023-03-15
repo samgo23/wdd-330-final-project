@@ -1,0 +1,22 @@
+{
+  "name": "wdd-330-final-project",
+  "version": "1.0.0",
+  "description": "wdd 330 final project website",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samgo23/wdd-330-final-project.git"
+  },
+  "author": "Sam Gordon <gordsam18@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/samgo23/wdd-330-final-project/issues"
+  },
+  "homepage": "https://github.com/samgo23/wdd-330-final-project#readme",
+  "dependencies": {
+    "parcel": "^2.8.3"
+  }
+}
