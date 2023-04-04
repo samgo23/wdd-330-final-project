@@ -4,9 +4,29 @@
 	padding: 0;
 }
 
-body {
+:root {
+	--background: #1D1D20;
+	--primary: #FFFFFF;
+	--secondary: #9E9E9E;
+	--active: #00DE32;
+	--light: #121212;
+  }
+  
+  body {
+	font-family: "Poppins", sans-serif;
+	background-color: var(--background);
+	color: var(--primary);
 	font-family: Arial, sans-serif;
-}
+  }
+  
+  a {
+	color: var(--secondary);
+  }
+  
+  a:hover {
+	color: var(--active);
+  }
+  
 
 header {
 	background-color: #333;
