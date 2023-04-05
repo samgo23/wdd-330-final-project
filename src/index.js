@@ -1,52 +1,23 @@
-// TODO make cool stuff
-import { loadHeaderFooter } from "./utils.mjs";
-import axios from 'axios';
-/*
-document.addEventListener('DOMContentLoaded', () => {
-    loadHeaderFooter();
+// TODO: cool stuff
+const express = require('express');
+const app = express();
+const fetch = require('node-fetch');
+const ejs = require('ejs');
+
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+  // Fetch a random recipe from the Spoonacular API
+  fetch('https://api.spoonacular.com/recipes/random?apiKey=80cf1614d6df4af9a16d5be110db7167')
+    .then(response => response.json())
+    .then(data => {
+      // Render the recipe on the webpage using EJS
+      res.render('index', { recipe: data.recipes[0] });
+    })
+    .catch(error => console.log(error));
 });
 
-*/
-
-let header = document.querySelector("#main-header");
-header.innerHTML = `
-<div class="container">
-    <h1>hello</h1>
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Properties</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-</div>
-` ;
-
-let footer = document.querySelector("#main-footer");
-footer.innerHTML = `
-<p>copyright stuff</p> `
-
-// In pages/api/location.js:
-const axios = require("axios");
-
-const options = {
-  method: 'GET',
-  url: 'https://realty-in-us.p.rapidapi.com/locations/v2/auto-complete',
-  params: {input: 'new york', limit: '10'},
-  headers: {
-    'X-RapidAPI-Key': 'f19d96850emsh553516ce3b3cd77p1d1cccjsn132accbe8537',
-    'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com'
-  }
-};
-
-axios.request(options).then(function (response) {
-	console.log(response.data);
-}).catch(function (error) {
-	console.error(error);
+app.listen(3000, () => {
+  console.log('Server started on http://localhost:3000');
 });
-
-const helloNode = document.createElement('h1');
-helloNode.textContent = "Hello World";
-
-document.getElementById('root').appendChild(helloNode);
-
